@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="StyleSheet.css">
+    <script src="Script.js"></script>
+    <title>Study Planner</title>
+</head>
+<body>
+    <div id="title">
+        <h1>Study Planner</h1>
+    </div>
+    <div id="Sign-in/Register">
+        <button class="button" onclick="Sign_in()">Sign-in</button>
+        <button class="button" onclick="Register()">Register</button>
+    </div>
+    <div id="RegisterMenu">
+        <h2>Register</h2>
+        <ul>
+            <li><input type="text" id="R_Username"><br>Username<br></li>
+            <li><input type="text" id="R_Password"><br>Your password must contain at least 6 letters, 1 capital letter and 1 number</li>
+        </ul>
+        <button id="register">Register</button>
+    </div>
+    <div id="Sign-inMenu">
+        <h2>Sign-in</h2>
+        <ul>
+            <li><input type="text" id="S_Username"></li>
+            <p id="V_User"></p>
+            <li><input type="text" id="S_Password"></li>
+            <p id="V_Password"></p>
+        </ul>
+    </div>
+</body>
+</html>
