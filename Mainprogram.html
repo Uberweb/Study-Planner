@@ -7,29 +7,33 @@
     <title>Study Planner</title>
 </head>
 <body>
-    <div id="title">
-        <h1>Study Planner</h1>
-    </div>
-    <div id="Sign-in/Register">
-        <button class="button" onclick="Sign_in()">Sign-in</button>
-        <button class="button" onclick="Register()">Register</button>
-    </div>
-    <div id="RegisterMenu">
-        <h2>Register</h2>
-        <ul>
-            <li><input type="text" id="R_Username"><br>Username<br></li>
-            <li><input type="text" id="R_Password"><br>Your password must contain at least 6 letters, 1 capital letter and 1 number</li>
-        </ul>
-        <button id="register">Register</button>
-    </div>
-    <div id="Sign-inMenu">
-        <h2>Sign-in</h2>
-        <ul>
-            <li><input type="text" id="S_Username"></li>
-            <p id="V_User"></p>
-            <li><input type="text" id="S_Password"></li>
-            <p id="V_Password"></p>
-        </ul>
+    <div id="container">
+        <div id="title">
+            <h1>Study Planner</h1>
+        </div>
+        <div id="Sign-in/Register">
+            <button class="button" onclick="Sign_in()">Sign-in</button>
+            <button class="button" onclick="Register()">Register</button>
+        </div>
+        <div id="RegisterMenu">
+            <h2>Register</h2>
+            <input type="text" id="R_Username" placeholder="Username">
+            <br><p id="V_User">Username already taken</p>
+            <input type="text" id="R_Password" placeholder="Password">
+            <br><p id="V_Password">Password does not meet requirements</p>
+            <p>Your password must contain at least 6 letters, 1 capital letter and 1 number</p>
+            <br>
+            <button class="button" id="register">Register</button>
+        </div>
+        <div id="Sign-inMenu">
+            <h2>Sign-in</h2>
+            <p>Username or password is incorrect</p>
+            <input type="text" id="S_Username" placeholder="Username">
+            <br>
+            <input type="text" id="S_Password" placeholder="Password">
+            <br>
+            <button class="button" id="Sign-in">Sign-in</button>
+        </div>
     </div>
 </body>
 </html>
