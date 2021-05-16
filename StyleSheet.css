@@ -1,23 +1,25 @@
 html {
     height: 100%;
-}
-
-body { /*aligning everything to the center of the page*/
-    margin: 0 auto;
-    text-align: center;
     background-image: url('StudyPlannerBackground.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: whitesmoke;
-    backdrop-filter: blur(2px);
     background-position: center;
+}
+
+body {
+    margin: 0 auto;
+    text-align: center;
     height: 100%;
 }
 
 h1 {
     font-size: 70px;
     color: white;
+    background-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: white;
 }
 
 h2 {
