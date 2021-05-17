@@ -1,16 +1,19 @@
-html {
-    height: 100%;
-    background-image: url('StudyPlannerBackground.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+#container {
+    margin: 0 auto;
+    text-align: center;
+
 }
 
 body {
     margin: 0 auto;
     text-align: center;
     height: 100%;
+    background-image: url('StudyPlannerBackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -20,6 +23,7 @@ h1 {
     border-style: solid;
     border-radius: 10px;
     border-color: white;
+    backdrop-filter:opacity(20px);
 }
 
 h2 {
@@ -39,7 +43,7 @@ h2 {
  }
 
 .button:hover {
-    background-color: gray;
+    background-color: beige;
     color: black;
 }
 
@@ -55,4 +59,12 @@ input {
 
 ul {
     list-style-type: none;
+}
+
+#RegisterMenu {
+    display: none;
+}
+
+#Sign-inMenu {
+    display: none;
 }
