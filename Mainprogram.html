@@ -20,18 +20,153 @@
             <h2>Register</h2>
             <input type="text" id="R_Username" placeholder="Username">
             <br><p id="V_User">Username already taken</p>
-            <input type="text" id="R_Password" placeholder="Password">
+            <input type="password" id="R_Password" placeholder="Password">
             <br><p id="V_Password">Password does not meet requirements</p>
             <p>Your password must contain at least 6 letters, 1 capital letter and 1 number</p>
             <br>
             <button class="button" id="register" onclick="R_Verification()">Register</button>
+            <br>
+            <div id="User_information">
+                <div id="User_Subjects">
+                    <label for="Subject1">Subject 1:</label>
+                         <select name="Subject1" id="Subject1">
+                             <option value="0">Select Subjects:</option>
+                             <option value="math_gen">Maths General</option>
+                             <option value="math_adv">Maths Advance</option>
+                             <option value="math_ext1">Maths Extension 1</option>
+                             <option value="math_ext2">Maths Extension 2</option>
+                             <option value="eng_gen">English General</option>
+                             <option value="eng_adv">English Advance</option>
+                             <option value="eng_ext1">English Extension 1</option>
+                             <option value="eng_ext2">English Extension 2</option>
+                             <option value="SDD">Software development and design</option>
+                             <option value="IPT">Information processing technology</option>
+                             <option value="phy">Physics</option>
+                             <option value="chem">Chemistry</option>
+                             <option value="bio">Biology</option>
+                         </select>
+                    <br><br>
+                    <label for="Subject2">Subject 2:</label>
+                        <select name="Subject2" id="Subject2">
+                            <option value="0">Select Subjects:</option>
+                            <option value="math_gen">Maths General</option>
+                            <option value="math_adv">Maths Advance</option>
+                            <option value="math_ext1">Maths Extension 1</option>
+                            <option value="math_ext2">Maths Extension 2</option>
+                            <option value="eng_gen">English General</option>
+                            <option value="eng_adv">English Advance</option>
+                            <option value="eng_ext1">English Extension 1</option>
+                            <option value="eng_ext2">English Extension 2</option>
+                            <option value="SDD">Software development and design</option>
+                            <option value="IPT">Information processing technology</option>
+                            <option value="phy">Physics</option>
+                            <option value="chem">Chemistry</option>
+                            <option value="bio">Biology</option>
+                        </select>
+                    <br><br>
+                    <label for="Subject3">Subject 3:</label>
+                        <select name="Subject3" id="Subject3">
+                            <option value="0">Select Subjects:</option>
+                            <option value="math_gen">Maths General</option>
+                            <option value="math_adv">Maths Advance</option>
+                            <option value="math_ext1">Maths Extension 1</option>
+                            <option value="math_ext2">Maths Extension 2</option>
+                            <option value="eng_gen">English General</option>
+                            <option value="eng_adv">English Advance</option>
+                            <option value="eng_ext1">English Extension 1</option>
+                            <option value="eng_ext2">English Extension 2</option>
+                            <option value="SDD">Software development and design</option>
+                            <option value="IPT">Information processing technology</option>
+                            <option value="phy">Physics</option>
+                            <option value="chem">Chemistry</option>
+                            <option value="bio">Biology</option>
+                        </select>
+                    <br><br>
+                    <label for="Subject4">Subject 4:</label>
+                        <select name="Subject4" id="Subject4">
+                            <option value="0">Select Subjects:</option>
+                            <option value="math_gen">Maths General</option>
+                            <option value="math_adv">Maths Advance</option>
+                            <option value="math_ext1">Maths Extension 1</option>
+                            <option value="math_ext2">Maths Extension 2</option>
+                            <option value="eng_gen">English General</option>
+                            <option value="eng_adv">English Advance</option>
+                            <option value="eng_ext1">English Extension 1</option>
+                            <option value="eng_ext2">English Extension 2</option>
+                            <option value="SDD">Software development and design</option>
+                            <option value="IPT">Information processing technology</option>
+                            <option value="phy">Physics</option>
+                            <option value="chem">Chemistry</option>
+                            <option value="bio">Biology</option>
+                        </select>
+                    <br><br>
+                    <label for="Subject5">Subject 5:</label>
+                        <select name="Subject5" id="Subject5">
+                            <option value="0">Select Subjects:</option>
+                            <option value="math_gen">Maths General</option>
+                            <option value="math_adv">Maths Advance</option>
+                            <option value="math_ext1">Maths Extension 1</option>
+                            <option value="math_ext2">Maths Extension 2</option>
+                            <option value="eng_gen">English General</option>
+                            <option value="eng_adv">English Advance</option>
+                            <option value="eng_ext1">English Extension 1</option>
+                            <option value="eng_ext2">English Extension 2</option>
+                            <option value="SDD">Software development and design</option>
+                            <option value="IPT">Information processing technology</option>
+                            <option value="phy">Physics</option>
+                            <option value="chem">Chemistry</option>
+                            <option value="bio">Biology</option>
+                        </select>
+                </div>
+                <div id="User_Assessments">
+                    <label for="assessment1">Assessment 1:</label>
+                    <form id="assessment1">
+                        <input type="text" placeholder="Assessment title"><br>
+                        <input type="text" placeholder="Assessment desc"><br>
+                        <input type="date" id="dd1">
+                    </form><br>
+                    <label for="assessment2">Assessment 2:</label>
+                    <form id="assessment2">
+                        <input type="text" placeholder="Assessment title"><br>
+                        <input type="text" placeholder="Assessment desc"><br>
+                        <input type="date" id="dd2">
+                    </form><br>
+                    <label for="assessment3">Assessment 3:</label>
+                    <form id="assessment3">
+                        <input type="text" placeholder="Assessment title"><br>
+                        <input type="text" placeholder="Assessment desc"><br>
+                        <input type="date" id="dd3">
+                    </form><br>
+                    <label for="assessment4">Assessment 4:</label>
+                    <form id="assessment4">
+                        <input type="text" placeholder="Assessment title"><br>
+                        <input type="text" placeholder="Assessment desc"><br>
+                        <input type="date" id="dd4">
+                    </form><br>
+                    <label for="assessment5">Assessment 5:</label>
+                    <form id="assessment5">
+                        <input type="text" placeholder="Assessment title"><br>
+                        <input type="text" placeholder="Assessment desc"><br>
+                        <input type="date" id="dd5">
+                    </form><br>
+                </div>
+                <div id="User_time">
+                    <input type="time" placeholder="Monday" id="T_Mon">
+                    <input type="time" placeholder="Tuesday" id="T_Tue">
+                    <input type="time" placeholder="Wednesday" id="T_Wed">
+                    <input type="time" placeholder="Thursday" id="T_Thu">
+                    <input type="time" placeholder="Friday" id="T_Fri">
+                    <input type="time" placeholder="Saturday" id="T_Sat">
+                    <input type="time" placeholder="Sunday" id="T_Sun">
+                </div>
+            </div>
         </div>
         <div id="Sign-inMenu">
             <h2>Sign-in</h2>
             <p>Username or password is incorrect</p>
             <input type="text" id="S_Username" placeholder="Username">
             <br>
-            <input type="text" id="S_Password" placeholder="Password">
+            <input type="password" id="S_Password" placeholder="Password">
             <br>
             <button class="button" id="Sign-in" onclick="S_Verification()">Sign-in</button>
         </div>

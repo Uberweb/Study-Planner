@@ -68,3 +68,11 @@ ul {
 #Sign-inMenu {
     display: none;
 }
+
+select {
+    content: "";
+    top: 14px;
+    right: 10px;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}

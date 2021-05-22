@@ -7,9 +7,6 @@ function Register() {
     RegisterMenu.style.display = "inline-block";
     let SignIn_RegisterMenu = document.getElementById("Sign-in/Register");
     SignIn_RegisterMenu.style.display = "none";
-    let verify = false;
-    let VerifyP = false;
-    let VerifyU = false;
 }
 
 function R_Verification() {
