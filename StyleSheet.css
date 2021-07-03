@@ -51,7 +51,7 @@ input {
     margin-top: 30px;
     border: 2px solid;
     border-radius: 5px;
-    font-size: 25px;
+    font-size: 20px;
     width: 150px;
     text-align: center;
     height: 43px;
@@ -73,6 +73,12 @@ select {
     content: "";
     top: 14px;
     right: 10px;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
+}
+
+#incorrect_login {
+    display: none;
+}
+
+#DisplayStudyPlanner {
+    display: none;
 }
