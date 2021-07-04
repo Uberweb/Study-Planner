@@ -36,37 +36,48 @@ function VerifyPassword(Password) {
     }
 }
 
-function VerifyUsername(Username) {
-
-}
+function VerifyUsername(Username) {}
 
 function Sign_inMenu() {
-    console.log("sign-in menu")
+    console.log("sign-in menu");
     let Sign_inMenu = document.getElementById('Sign-inMenu');
     Sign_inMenu.style.display = "inline-block";
     let SignIn_RegisterMenu = document.getElementById("Sign-in/Register");
     SignIn_RegisterMenu.style.display = "none";
     let incorrect_login = document.getElementById('incorrect_login');
-    let S_Username = document.getElementById('S_Username');
-    let S_Password = document.getElementById('S_Password');
 }
 
-function ValidateUser(S_Username, S_Password){
+function ValidateUser(){
     console.log('ValidateUser');
+    let Sign_inMenu = document.getElementById('Sign-inMenu');
+    let S_Username = document.getElementById('S_Username').value;
+    let S_Password = document.getElementById('S_Password').value;
     for (let i = 0; i < UserPass.Users.length; i++) {
+        console.log("loop");
+        console.log(UserPass.Users[i].Username);
+        console.log(UserPass.Users[i].Password);
+        console.log(S_Username);
+        console.log(S_Password);
         if (S_Username === UserPass.Users[i].Username && S_Password === UserPass.Users[i].Password) {
-            DisplayStudyPlanner(S_Username);
-            return true;
+            Sign_inMenu.style.display = "none";
+            console.log(i + " index");
+            DisplayStudyPlanner(S_Username, i);
+            break;
         }
     }
     incorrect_login.style.display = "inline-block";
-    return false;
 }
 
-function DisplayStudyPlanner(S_Username) {
-    console.log('D_StudyPlanner')
+function DisplayStudyPlanner(S_Username, i) {
+    console.log('D_StudyPlanner');
+    let D_StudyPlanner = document.getElementById('DisplayStudyPlanner');
+    D_StudyPlanner.style.display = "inline-block";
     let StudyPlanner = document.getElementById('StudyPlanner');
-    let total_periods = UserPass.Users.Subjects.length + UserPass.Users.Assessments.length;
+    let total_periods = (UserPass.Users[i].Subjects).length + (UserPass.Users[i].Assessments).length;
+    console.log(total_periods);
+    console.log(UserPass.Users[i].Subjects + " Subjects");
+    console.log(UserPass.Users[i].Assessments + " Assessments");
+    let today = new Date();
     for (let i = 0; i < total_periods; i++) {
         let row = StudyPlanner.insertRow(i);
         let time = row.insertCell(0);
