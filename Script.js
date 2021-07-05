@@ -1,6 +1,7 @@
+//Time index: index is the day of the week index 0 = monday to 6 = sunday
 let UserPass = {Users: [
-        {Username: "test1", Password: "Cheeseman123", Subjects: ["eng_adv", "math_adv", "math_ext1", "phy", "SDD", "IPT"],
-            Assessments: ["SDD", "math_adv", "math_ext1"], Time: [{Mon: "a"}, {Tue: "b"}, {Wed: "c"}, {Thu: "d"}, {Fri: "e"}, {Sat: "g"}, {Sun: "h"}]},
+        {Username: "test1", Password: "123", Subjects: ["eng_adv", "math_adv", "math_ext1", "phy", "SDD", "IPT"],
+            Assessments: ["SDD", "math_adv", "math_ext1"], Time: [4, "b", "c", "d", "e", "g", "h"]},
         {Username: "test2", Password: "Wowowow321"}
     ]
 };
@@ -77,13 +78,26 @@ function DisplayStudyPlanner(S_Username, i) {
     console.log(total_periods);
     console.log(UserPass.Users[i].Subjects + " Subjects");
     console.log(UserPass.Users[i].Assessments + " Assessments");
-    let today = new Date();
-    for (let i = 0; i < total_periods; i++) {
+    let d = new Date();
+    console.log(d + "d");
+    let weekday = new Array(7);
+    weekday[0] = 6; //Sun
+    weekday[1] = 0; //Mon
+    weekday[2] = 1; //Tue
+    weekday[3] = 2; //Wed
+    weekday[4] = 3; //Thu
+    weekday[5] = 4; //Fri
+    weekday[6] = 5; //Sat
+    let n = weekday[d.getDay()];
+    let s_time = UserPass.Users[i].Time[n];
+    console.log(s_time + " start time");
+    for (let j = 0; j < (UserPass.Users[i].Subjects).length; j++) { //need to change for all (UserPass.Users[i].Subjects).length for all periods)
         let row = StudyPlanner.insertRow(i);
         let time = row.insertCell(0);
         let period = row.insertCell(1);
-        time.innerHTML = "HI";
-        period.innerHTML = "WOWOW";
+        time.innerHTML = s_time + "-" + (s_time + 1) + " pm";
+        period.innerHTML = UserPass.Users[i].Subjects[j];
+        s_time = s_time + 1;
     }
 }
 

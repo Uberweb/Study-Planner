@@ -8,12 +8,11 @@ body {
     margin: 0 auto;
     text-align: center;
     height: 100%;
-    background-image: url('StudyPlannerBackground.jpg');
+    background-image: url('5uda5QC.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -81,4 +80,6 @@ select {
 
 #DisplayStudyPlanner {
     display: none;
+    color: white;
+    font-size: 23px;
 }
