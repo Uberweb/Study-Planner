@@ -1,7 +1,6 @@
 #container {
     margin: 0 auto;
     text-align: center;
-
 }
 
 body {
@@ -16,24 +15,27 @@ body {
 }
 
 h1 {
+    text-align: center;
     font-size: 70px;
     color: white;
-    background-color: gray;
     border-style: solid;
     border-radius: 10px;
     border-color: white;
-    backdrop-filter:opacity(20px);
+    border-width: 1px;
+    width: 35%;
+    display: inline-block;
 }
 
 h2 {
     font-size: 50px;
     color: white;
+    margin: 0px;
 }
 
 .button {
      width: 150px;
      height: 55px;
-     border-radius: 15px;
+     border-radius: 5px;
      border: 2px solid;
      margin-bottom: 5px;
      background-color: whitesmoke;
@@ -51,7 +53,7 @@ input {
     border: 2px solid;
     border-radius: 5px;
     font-size: 20px;
-    width: 150px;
+    width: 250px;
     text-align: center;
     height: 43px;
 }
@@ -82,4 +84,13 @@ select {
     display: none;
     color: white;
     font-size: 23px;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+}
+
+#StudyPlanner {
+    margin: 15px 0px;
 }

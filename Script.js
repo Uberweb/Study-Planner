@@ -12,6 +12,8 @@ function Register() {
     RegisterMenu.style.display = "inline-block";
     let SignIn_RegisterMenu = document.getElementById("Sign-in/Register");
     SignIn_RegisterMenu.style.display = "none";
+    let SignInMenu = document.getElementById("Sign-inMenu");
+    SignInMenu.style.display = "none"
 }
 
 function R_Verification() {
