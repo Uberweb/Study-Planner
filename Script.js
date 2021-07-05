@@ -1,7 +1,7 @@
 //Time index: index is the day of the week index 0 = monday to 6 = sunday
 let UserPass = {Users: [
-        {Username: "test1", Password: "123", Subjects: ["eng_adv", "math_adv", "math_ext1", "phy", "SDD", "IPT"],
-            Assessments: ["SDD", "math_adv", "math_ext1"], Time: [4, "b", "c", "d", "e", "g", "h"]},
+        {Username: "test1", Password: "123", Subjects: ["English Advance", "Maths Advance", "Maths Extension 1", "Physics", "SDD", "IPT"],
+            Assessments: ["SDD", "math_adv", "math_ext1"], Time: [4, 4, 3, 5, 4, 3, 4]},
         {Username: "test2", Password: "Wowowow321"}
     ]
 };
@@ -47,10 +47,10 @@ function Sign_inMenu() {
     Sign_inMenu.style.display = "inline-block";
     let SignIn_RegisterMenu = document.getElementById("Sign-in/Register");
     SignIn_RegisterMenu.style.display = "none";
-    let incorrect_login = document.getElementById('incorrect_login');
 }
 
 function ValidateUser(){
+    let incorrect_login = document.getElementById('incorrect_login');
     console.log('ValidateUser');
     let Sign_inMenu = document.getElementById('Sign-inMenu');
     let S_Username = document.getElementById('S_Username').value;
@@ -102,10 +102,5 @@ function DisplayStudyPlanner(S_Username, i) {
         s_time = s_time + 1;
     }
 }
-
-function ReadSubjects(){}
-function ReadAssessments(){}
-function ReadStartTime(){}
-function AssessmentCalender(){}
 
 
