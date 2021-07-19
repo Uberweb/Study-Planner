@@ -2,7 +2,8 @@
 let UserPass = {Users: [
         {Username: "test1", Password: "123", Subjects: ["English Advance", "Maths Advance", "Maths Extension 1", "Physics", "SDD", "IPT"],
             Assessments: ["SDD", "math_adv", "math_ext1"], Time: [4, 4, 3, 5, 4, 3, 4]},
-        {Username: "test2", Password: "Wowowow321"}
+        {Username: "test2", Password: "321", Subjects: ["English Advance", "English Extension 1", "English Extension 2", "Modern History", "Business Studies", "Art"],
+            Assessments: ["English Extension 1", "English Advance", "Art"], Time: [2, 5, 3, 5, 4, 3, ]}
     ]
 };
 console.log(UserPass);
@@ -24,7 +25,7 @@ function R_Verification() {
         V_Password.style.display = "inline-block";
     }
     VerifyUsername(Username);
-    if (VerifyU === false) {
+    if (VerifyUsername()  === false) {
         let V_Username = document.getElementById("V_User");
         V_Username.style.display = "inline-block";
     }
@@ -32,11 +33,7 @@ function R_Verification() {
 
 function VerifyPassword(Password) {
     let reg = new RegExp("^(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$");
-    if (reg.test(Password)) {
-        return true;
-    } else {
-        return false;
-    }
+    return reg.test(Password);
 }
 
 function VerifyUsername(Username) {}
@@ -55,12 +52,9 @@ function ValidateUser(){
     let Sign_inMenu = document.getElementById('Sign-inMenu');
     let S_Username = document.getElementById('S_Username').value;
     let S_Password = document.getElementById('S_Password').value;
+    console.log(S_Username);
+    console.log(S_Password);
     for (let i = 0; i < UserPass.Users.length; i++) {
-        console.log("loop");
-        console.log(UserPass.Users[i].Username);
-        console.log(UserPass.Users[i].Password);
-        console.log(S_Username);
-        console.log(S_Password);
         if (S_Username === UserPass.Users[i].Username && S_Password === UserPass.Users[i].Password) {
             Sign_inMenu.style.display = "none";
             console.log(i + " index");
@@ -92,9 +86,9 @@ function DisplayStudyPlanner(S_Username, i) {
     weekday[6] = 5; //Sat
     let n = weekday[d.getDay()];
     let s_time = UserPass.Users[i].Time[n];
-    console.log(s_time + " start time");
-    for (let j = 0; j < (UserPass.Users[i].Subjects).length; j++) { //need to change for all (UserPass.Users[i].Subjects).length for all periods)
-        let row = StudyPlanner.insertRow(i);
+    console.log(i)
+    for (let j = 0; j < (UserPass.Users[i].Subjects).length; j++) { //need to change for all (UserPass.Users[i].Subjects).length to all periods
+        let row = StudyPlanner.insertRow(j);
         let time = row.insertCell(0);
         let period = row.insertCell(1);
         time.innerHTML = s_time + "-" + (s_time + 1) + " pm";
@@ -103,4 +97,61 @@ function DisplayStudyPlanner(S_Username, i) {
     }
 }
 
-
+function DisplayAssessmentCalender() {
+    let D_StudyPlanner = document.getElementById('DisplayStudyPlanner');
+    D_StudyPlanner.style.display = "none";
+    let ACalenderMenu = document.getElementById('ACalenderMenu');
+    ACalenderMenu.style.display = "flex";
+    const renderCalender = () => {
+        const date = new Date();
+        const lastDay = new Date(date.getFullYear(),date.getMonth() + 1,0).getDate()//gets last date of the current month
+        const firstDayIndex = date.getDay()
+        const prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate()
+        const lastDayIndex = new Date(date.getFullYear(),date.getMonth() + 1,0).getDay()
+        const nextDays = 7 - lastDayIndex - 1;
+        date.setDate(1);
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+        console.log(date);
+        console.log(months);
+        document.querySelector(".date h2").innerHTML = months[date.getMonth()];
+        document.querySelector(".date p").innerHTML = date.toDateString();
+        let days = "";
+        const monthDays = document.querySelector('.days');
+        for (let x = firstDayIndex; x > 0; x--){ //creating a new div element for previous month dates
+            days += `<div class="prev-date>${prevLastDay - x + 1}</div>`;
+        }
+        for (let i = 1; i <= lastDay; i++) { //loops through to displays each day
+            if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
+                days += `<div class="today">${i}</div>`; //x += 10
+            } else {
+                days += `<div>${i}</div>`; //x += 10
+            }
+        }
+        for (let j = 1; j<= nextDays; j++) {
+            days += `<div class="next-date">${j}</div>`;
+        }
+        monthDays.innerHTML = days;
+    }
+    document.querySelector('.prev').addEventListener('click', () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalender();
+    });
+    document.querySelector('.next').addEventListener('click', () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalender();
+    });
+    renderCalender();
+}
