@@ -155,6 +155,7 @@ p {
 }
 
 .month i {
+    font-size: 2.5rem;
     cursor: pointer;
 }
 
@@ -186,7 +187,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0.3rem .5rem rgba(0,0,0,0.5);
 }
 
 .days {
@@ -204,7 +204,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0 0.5rem 0.5rem;
     transition: background-color 0.2s;
 }
 
