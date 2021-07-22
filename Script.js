@@ -6,7 +6,6 @@ let UserPass = {Users: [ //javascript object to store information about each use
             Assessments: ["English Extension 1", "English Advance", "Art"], Time: [2, 5, 3, 5, 4, 3, ]}
     ]
 };
-console.log(UserPass);
 
 function Register() {
     let RegisterMenu = document.getElementById("RegisterMenu"); //displaying the register elements
@@ -92,7 +91,7 @@ function DisplayStudyPlanner(S_Username, i) {
         let row = StudyPlanner.insertRow(j);
         let time = row.insertCell(0);
         let period = row.insertCell(1);
-        time.innerHTML = s_time + "-" + (s_time + 1) + " pm";
+        time.innerHTML = s_time + "-" + (s_time + 1) + " pm"; //setting the html tag of time to the starting time, plus 1 for each hour
         period.innerHTML = UserPass.Users[i].Subjects[j];
         s_time = s_time + 1;
     }
@@ -105,7 +104,8 @@ function DisplayAssessmentCalender() {
     ACalenderMenu.style.display = "flex";
     const date = new Date(); //setting current date
     const renderCalender = () => {
-        const date = new Date(); //gets day
+        date.setDate(1);
+        const monthDays = document.querySelector('.days'); //sets the month days
         const lastDay = new Date(date.getFullYear(),date.getMonth() + 1,0).getDate()//gets last date of the current month
         const firstDayIndex = date.getDay() //sets the index value for the first day
         const prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate() //gets the last day to display from the month before (not the last date of the month)
@@ -128,7 +128,6 @@ function DisplayAssessmentCalender() {
         document.querySelector(".date h2").innerHTML = months[date.getMonth()]; //changes the html tag to the month
         document.querySelector(".date p").innerHTML = date.toDateString(); //changes the html tag to the date
         let days = "";
-        const monthDays = document.querySelector('.days'); //sets the month days
         for (let x = firstDayIndex; x > 0; x--){ //creating a new div element for previous month days
             days += `<div class="prev-date>${prevLastDay - x + 1}</div>`;
         }
