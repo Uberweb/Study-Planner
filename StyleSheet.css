@@ -208,8 +208,7 @@ p {
 }
 
 .days div:hover:not(.today) {
-    background-color: bisque;
-    border: .2rem solid rgba(255, 288, 196,0.8);
+    background-color: rgba(200,210,180,0.2);
     cursor: pointer;
 }
 
@@ -221,3 +220,6 @@ p {
     background-color: peachpuff;
 }
 
+.DDate {
+    background-color: red;
+}
