@@ -14,8 +14,8 @@
             <h1>Study Planner</h1>
         </div>
         <div id="Sign-in/Register">
-            <button class="button" onclick="Sign_inMenu()">Sign-in</button>
-            <button class="button" onclick="Register()">Register</button>
+            <button class="button" onclick="Sign_inMenu()" title="Click here to Sign in into your account">Sign-in</button>
+            <button class="button" onclick="Register()" title="Click here to Register your new account">Register</button>
         </div>
         <div id="RegisterMenu">
             <h2>Register</h2>
@@ -173,31 +173,31 @@
             <input type="password" id="S_Password" placeholder="Password">
             <br>
             <br>
-            <button class="button" id="Sign-in" onclick="ValidateUser()">Sign-in</button>
+            <button class="button" id="Sign-in" onclick="ValidateUser()" title="Click here to Sign in into your account">Sign-in</button>
             <br>
             <br>
             <p>Don't have an account? Click below.</p>
-            <button class="button" onclick="Register()">Register</button>
+            <button class="button" onclick="Register()" title="Click here to Register your new account">Register</button>
         </div>
         <br>
         <div id="DisplayStudyPlanner">
             <h2>Time Table</h2>
             <br>
             <div id="menubar">
-                <button class="button2" onclick="DisplayAssessmentCalender()">Assessment Calender</button>
-                <button class="button2" onclick="ExtraActivities()">Extra Activities</button>
+                <button class="button2" onclick="DisplayAssessmentCalender()" title="Click here to access your Assessment Calender">Assessment Calender</button>
+                <button class="button2" onclick="ExtraActivities()" title="Click here to add your extra activities">Extra Activities</button>
              </div>
             <table id="StudyPlanner" style="width: 100%"></table>
         </div>
         <div id="ACalenderMenu">
             <div id="calender">
                 <div id="month">
-                    <i class="fas fa-angle-left prev"></i>
+                    <i class="fas fa-angle-left prev" title="Click to go to previous month"></i>
                     <div class="date">
                         <h2></h2>
                         <p></p>
                     </div>
-                    <i class="fas fa-angle-right next"></i>
+                    <i class="fas fa-angle-right next" title="Click to go to next month"></i>
                 </div>
                 <div class="weekdays">
                     <div>Sun</div>
@@ -208,7 +208,12 @@
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
-                <div class="days">
+                <div class="days"></div>
+                <br>
+                <div id="calender_tip">
+                    <p id="calender_dday">Red highlights are assessment due dates</p>
+                    <br>
+                    <p id="calender_today">Beige highlights is current day</p>
                 </div>
             </div>
         </div>

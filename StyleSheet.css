@@ -142,6 +142,13 @@ p {
 #calender{
     width: 45rem;
     height: 52rem;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: antiquewhite;
+    border-width: 2px;
+    border-spacing: 13px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .month {
@@ -212,7 +219,11 @@ p {
     cursor: pointer;
 }
 
-.prev-date,.next-date {
+.next-date {
+    opacity: 0.5;
+}
+
+.prev-date {
     opacity: 0.5;
 }
 
@@ -222,4 +233,25 @@ p {
 
 .DDate {
     background-color: red;
+}
+
+#calender_dday {
+    color: red;
+}
+
+#calender_today {
+    color: peachpuff;
+}
+
+#calender_tip {
+    border-style: solid;
+    border-radius: 15px;
+    border-color: antiquewhite;
+    border-width: 2px;
+    border-spacing: 5px;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
 }

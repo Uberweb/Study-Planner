@@ -82,7 +82,7 @@ function DisplayStudyPlanner(S_Username, i) {
     let d = new Date(); //setting new date
     console.log(d + "d");
     let weekday = new Array(7); //setting the day so get when the study periods should start, set by the student
-    weekday[0] = 6; //Sun
+    weekday[0] = 6; //Sun, all weekdays are ordered by index due to the array of the start study time starting from monday
     weekday[1] = 0; //Mon
     weekday[2] = 1; //Tue
     weekday[3] = 2; //Wed
@@ -158,13 +158,13 @@ function DisplayAssessmentCalender() {//displaying the assessment calender for t
     }
     document.querySelector('.prev').addEventListener('click', () => { //updates the calender to the previous month when the user clicks on the left arrow
         date.setMonth(date.getMonth() - 1);//changes the current month to the previous month
-        renderCalender();
+        renderCalender();//renders calender everytime button is pressed
     });
     document.querySelector('.next').addEventListener('click', () => { //updates the calender to the next month when the user clicks on the right arrow
         date.setMonth(date.getMonth() + 1); //changes the current month to the next month
-        renderCalender();
+        renderCalender();//renders calender when button is pressed
     });
-    renderCalender();
+    renderCalender();//renders calender with current month, previous and next month buttons havnt been pressed yet
 }
 
 function checkdday(day, d_days, date) { //checks if the day has a due date
