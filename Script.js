@@ -42,32 +42,34 @@ function VerifyPassword(Password) {
 function VerifyUsername(Username) {}
 
 function Sign_inMenu() { //displays the sign-in menu
-    console.log("sign-in menu");
     let Sign_inMenu = document.getElementById('Sign-inMenu'); //displaying the sign-in menu element
     Sign_inMenu.style.display = "inline-block";
     let SignIn_RegisterMenu = document.getElementById("Sign-in/Register"); //hiding the register menu element
     SignIn_RegisterMenu.style.display = "none";
 }
 
-function ValidateUser(){
+function ValidateUser(S_Username, S_Password) {
     let incorrect_login = document.getElementById('incorrect_login'); //setting the incorrect login text as a variable for display options later on if the function doesn't find a matching username and password
     console.log('ValidateUser');
     let Sign_inMenu = document.getElementById('Sign-inMenu');
-    let S_Username = document.getElementById('S_Username').value; //getting sign-in username input value
-    let S_Password = document.getElementById('S_Password').value; //getting sign-in password input value
     console.log(S_Username);
     console.log(S_Password);
     for (let i = 0; i < UserPass.Users.length; i++) { //loops through the javascript object checking if the username matches with the stored password
         if (S_Username === UserPass.Users[i].Username && S_Password === UserPass.Users[i].Password) {//loops through the user array checking if the input username and password match up with the stored username and password
             Sign_inMenu.style.display = "none";
-            console.log(i + " index");
             n = i;
-            console.log(n + " i");
             DisplayStudyPlanner(S_Username, i);//parsing the input username and the index username value into the function to get their information in the future
-            break; //exits the loop if the user is found, so the loop doesnt keep checking every other index value
+            return true;
+            //break; //exits the loop if the user is found, so the loop doesnt keep checking every other index value
         }
     }
     incorrect_login.style.display = "inline-block"; //displays incorrect login text due to the lack of matching in the input username and password towards the stored username and password
+}
+
+function GetUsernamePassword () { //so that the S_Username and password can be parsed into the validate function allowing the driver to also parse it's own values.
+    let S_Username = document.getElementById('S_Username').value; //getting user inputted username from the html
+    let S_Password = document.getElementById('S_Password').value; //getting user inputted password from the html
+    ValidateUser(S_Username, S_Password); //parsing the inputted username and password to validate user function
 }
 
 function DisplayStudyPlanner(S_Username, i) {
@@ -76,11 +78,7 @@ function DisplayStudyPlanner(S_Username, i) {
     D_StudyPlanner.style.display = "inline-block";
     let StudyPlanner = document.getElementById('StudyPlanner');
     let total_periods = (UserPass.Users[i].Subjects).length + (UserPass.Users[i].Assessments).length; //total amount of things to study and prepare for
-    console.log(total_periods);
-    console.log(UserPass.Users[i].Subjects + " Subjects");
-    console.log(UserPass.Users[i].Assessments + " Assessments");
     let d = new Date(); //setting new date
-    console.log(d + "d");
     let weekday = new Array(7); //setting the day so get when the study periods should start, set by the student
     weekday[0] = 6; //Sun, all weekdays are ordered by index due to the array of the start study time starting from monday
     weekday[1] = 0; //Mon
@@ -91,7 +89,6 @@ function DisplayStudyPlanner(S_Username, i) {
     weekday[6] = 5; //Sat
     let n = weekday[d.getDay()];
     let s_time = UserPass.Users[i].Time[n]; //starting study time from the student
-    console.log(i)
     //for loop adds a row for each subject and the time to study for each subject
     for (let j = 0; j < (UserPass.Users[i].Subjects).length; j++) { //need to change for all (UserPass.Users[i].Subjects).length to all periods
         let row = StudyPlanner.insertRow(j);
@@ -104,23 +101,20 @@ function DisplayStudyPlanner(S_Username, i) {
 }
 
 function DisplayAssessmentCalender() {//displaying the assessment calender for the specific user
-    console.log(UserPass.Users[n].DDate[0]);
-    console.log(new Date().getMonth());
-    console.log(new Date().getDate());
     let D_StudyPlanner = document.getElementById('DisplayStudyPlanner'); //hiding all other elements
     D_StudyPlanner.style.display = "none";
     let ACalenderMenu = document.getElementById('ACalenderMenu'); //displaying the assessment calender elements
     ACalenderMenu.style.display = "flex"; //to fit the items within the page
-    let date = new Date(); //setting current date
+    let date = new Date(); //getting current date for calculations
     let renderCalender = () => {
         date.setDate(1);// setting the date as 1 so that the date is 1 and not 0 for future calculations
-        let monthDays = document.querySelector('.days'); //sets the month days
+        let monthDays = document.querySelector('.days'); //sets the month days, for use to determine the rest of next months days need to be included as not all days finish on a sunday
         let lastDay = new Date(date.getFullYear(),date.getMonth() + 1,0).getDate();//gets last date of the current month
         let firstDayIndex = date.getDay(); //sets the index value for the first day, the weekday because not all months start on the monday
         let prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate(); //gets the last day to display from the month before (not the last date of the month)
         let lastDayIndex = new Date(date.getFullYear(),date.getMonth() + 1,0).getDay(); //index the last day
         let nextDays = 7 - lastDayIndex - 1; //the next day's after the current month
-        const months = [ //index the months in order
+        const months = [ //indexed the months in order for calculation current month
             "January",
             "February",
             "March",
@@ -148,7 +142,7 @@ function DisplayAssessmentCalender() {//displaying the assessment calender for t
                 days += `<div class="DDate">${i}</div>`; //gives the days the due date class so that the background of the date is highlighted by the css class
             }
             else {
-                days += `<div>${i}</div>`; //x += 10 to add the next day
+                days += `<div>${i}</div>`; //x += 10 to add the next day, to go to the next day.
             }
         }
         for (let j = 1; j<= nextDays; j++) {
@@ -164,15 +158,28 @@ function DisplayAssessmentCalender() {//displaying the assessment calender for t
         date.setMonth(date.getMonth() + 1); //changes the current month to the next month
         renderCalender();//renders calender when button is pressed
     });
-    renderCalender();//renders calender with current month, previous and next month buttons havnt been pressed yet
+    renderCalender();//renders calender with current month, previous and next month buttons haven't been pressed yet
 }
 
 function checkdday(day, d_days, date) { //checks if the day has a due date
     for (let d of d_days) {
         let parts = d.split('/');//due dates stored as a string therefore need to split up the components of the dates
-        if (parseInt(parts[0]) === day && date.getMonth() === (parts[1]-1)) { //checks if the current date is the same as the due date
+        if (parseInt(parts[0]) === day && date.getMonth() === (parts[1]-1)) { //checks if the current date is the same as the due date by checking current day and current month
             return true;
         }
     }
     return false;
+}
+
+function driver() {
+    let data = ["test1", "123", true, "test2", "321", true, "test3", "liesubgjibg", false]; //test data
+    for (let i = 0; i < data.length; i += 3) { //loops through the test data at 3 intervals to separate the each section of the test data, as the first value is the username, second is the password and the third value is what the test outcome should be
+        if (ValidateUser(data[i], data[i + 1]) === data[i + 2]) { //looping through each test data too see if the validate user function is correct in it's output with the test data
+            console.log(`Test Case #${i/3+1} %cPassed`, "color: green");
+        } else {
+            let incorrect_login = document.getElementById('incorrect_login'); //hides the incorrect username and password from displaying in the html
+            incorrect_login.style.display = "none";
+            console.log(`Test Case #${i/3+1} %cFailed`, "color: red");
+        }
+    }
 }
