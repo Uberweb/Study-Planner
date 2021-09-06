@@ -9,15 +9,15 @@
     <!-- Use Bootstrap 4  -->
 </head>
 <body>
-    <div id="container">
-        <div id="title">
+    <div id="container"><!Putting all elements into a container so that all elements can be shifted and moved. While a background can be added to the back>
+        <div id="title"><!Setting element as a title>
             <h1>Study Planner</h1>
         </div>
-        <div id="Sign-in/Register">
+        <div id="Sign-in/Register"><!sign-in or register screen>
             <button class="button" onclick="Sign_inMenu()" title="Click here to Sign in into your account">Sign-in</button>
             <button class="button" onclick="Register()" title="Click here to Register your new account">Register</button>
         </div>
-        <div id="RegisterMenu">
+        <div id="RegisterMenu"> <!--the register screen-->
             <h2>Register</h2>
             <input type="text" id="R_Username" placeholder="Username">
             <br><p id="V_User">Username already taken</p>
@@ -163,8 +163,8 @@
                     <button class="button" onclick="">Submit</button>
                 </div>
             </div>
-        </div>
-        <div id="Sign-inMenu">
+        </div><!register screen/menu>
+        <div id="Sign-inMenu"><!sign in screen/menu>
             <h2>Sign-in</h2>
             <p id="incorrect_login">Username or password is incorrect</p><br>
             <p>Please enter your account details below</p>
@@ -178,28 +178,34 @@
             <br>
             <p>Don't have an account? Click below.</p>
             <button class="button" onclick="Register()" title="Click here to Register your new account">Register</button>
+            <br>
+            <br>
+            <p>Hover over me!</p>
+            <button class="button" onclick="Login_driver()" title="Click here to test the sign-in function,
+             This will cause test accounts too run and automatically sign-in to both if the test has passed.
+             Please check the console log to see the results of the tests.">Sign-in Driver</button>
         </div>
         <br>
-        <div id="DisplayStudyPlanner">
+        <div id="DisplayStudyPlanner"><!Display the study planner timetable>
             <h2>Time Table</h2>
             <br>
-            <div id="menubar">
+            <div id="menubar"> <!menu bar containing buttons to the other sections of the system>
                 <button class="button2" onclick="DisplayAssessmentCalender()" title="Click here to access your Assessment Calender">Assessment Calender</button>
                 <button class="button2" onclick="ExtraActivities()" title="Click here to add your extra activities">Extra Activities</button>
              </div>
             <table id="StudyPlanner" style="width: 100%"></table>
         </div>
-        <div id="ACalenderMenu">
-            <div id="calender">
-                <div id="month">
-                    <i class="fas fa-angle-left prev" title="Click to go to previous month"></i>
-                    <div class="date">
+        <div id="ACalenderMenu"><!holds the timetable>
+            <div id="calender"><!seperates the calendar section from the menu bar>
+                <div id="month"> <!holds the current view as the month div>
+                    <i class="fas fa-angle-left prev" title="Click to go to previous month"></i> <!previous month arrow button>
+                    <div class="date"> <!displays the current date made by the javascript>
                         <h2></h2>
                         <p></p>
                     </div>
-                    <i class="fas fa-angle-right next" title="Click to go to next month"></i>
+                    <i class="fas fa-angle-right next" title="Click to go to next month"></i> <!next month arrow button>
                 </div>
-                <div class="weekdays">
+                <div class="weekdays"><!gives each column week days name>
                     <div>Sun</div>
                     <div>Mon</div>
                     <div>Tue</div>
@@ -208,9 +214,9 @@
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
-                <div class="days"></div>
+                <div class="days"></div> <!empty class div so that the javascript can add the dates into it for each month>
                 <br>
-                <div id="calender_tip">
+                <div id="calender_tip"> <!section to help the user understand how to read the assessment calendar>
                     <p id="calender_dday">Red highlights are assessment due dates</p>
                     <br>
                     <p id="calender_today">Beige highlights is current day</p>

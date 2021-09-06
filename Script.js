@@ -4,7 +4,7 @@ let UserPass = {Users: [ //javascript object to store information about each use
             Assessments: ["SDD", "math_adv", "math_ext1"], Time: [4, 4, 3, 5, 4, 3, 4],
             DDate: ["28/07/21", "30/08/21", "15/08/21"]},
         {Username: "test2", Password: "321", Subjects: ["English Advance", "English Extension 1", "English Extension 2", "Modern History", "Business Studies", "Art"],
-            Assessments: ["English Extension 1", "English Advance", "Art"], Time: [2, 5, 3, 5, 4, 3, ]}
+            Assessments: ["English Extension 1", "English Advance", "Art"], Time: [2, 5, 3, 5, 4, 3, 5]}
     ]
 };
 console.log(UserPass);
@@ -57,10 +57,11 @@ function ValidateUser(S_Username, S_Password) {
     for (let i = 0; i < UserPass.Users.length; i++) { //loops through the javascript object checking if the username matches with the stored password
         if (S_Username === UserPass.Users[i].Username && S_Password === UserPass.Users[i].Password) {//loops through the user array checking if the input username and password match up with the stored username and password
             Sign_inMenu.style.display = "none";
+            console.log(i);
             n = i;
+            console.log(n);
             DisplayStudyPlanner(S_Username, i);//parsing the input username and the index username value into the function to get their information in the future
-            return true;
-            //break; //exits the loop if the user is found, so the loop doesnt keep checking every other index value
+            return true; //exits the loop if the user is found, so the loop doesnt keep checking every other index value
         }
     }
     incorrect_login.style.display = "inline-block"; //displays incorrect login text due to the lack of matching in the input username and password towards the stored username and password
@@ -114,6 +115,12 @@ function DisplayAssessmentCalender() {//displaying the assessment calender for t
         let prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate(); //gets the last day to display from the month before (not the last date of the month)
         let lastDayIndex = new Date(date.getFullYear(),date.getMonth() + 1,0).getDay(); //index the last day
         let nextDays = 7 - lastDayIndex - 1; //the next day's after the current month
+        console.log(monthDays);
+        console.log(lastDay);
+        console.log(firstDayIndex);
+        console.log(prevLastDay);
+        console.log(lastDayIndex)
+        console.log(nextDays);
         const months = [ //indexed the months in order for calculation current month
             "January",
             "February",
@@ -152,11 +159,11 @@ function DisplayAssessmentCalender() {//displaying the assessment calender for t
     }
     document.querySelector('.prev').addEventListener('click', () => { //updates the calender to the previous month when the user clicks on the left arrow
         date.setMonth(date.getMonth() - 1);//changes the current month to the previous month
-        renderCalender();//renders calender everytime button is pressed
+        renderCalender();//renders calender everytime previous button is pressed
     });
     document.querySelector('.next').addEventListener('click', () => { //updates the calender to the next month when the user clicks on the right arrow
         date.setMonth(date.getMonth() + 1); //changes the current month to the next month
-        renderCalender();//renders calender when button is pressed
+        renderCalender();//renders calender when next button is pressed
     });
     renderCalender();//renders calender with current month, previous and next month buttons haven't been pressed yet
 }
@@ -171,15 +178,15 @@ function checkdday(day, d_days, date) { //checks if the day has a due date
     return false;
 }
 
-function driver() {
+function Login_driver() {
     let data = ["test1", "123", true, "test2", "321", true, "test3", "liesubgjibg", false]; //test data
     for (let i = 0; i < data.length; i += 3) { //loops through the test data at 3 intervals to separate the each section of the test data, as the first value is the username, second is the password and the third value is what the test outcome should be
         if (ValidateUser(data[i], data[i + 1]) === data[i + 2]) { //looping through each test data too see if the validate user function is correct in it's output with the test data
-            console.log(`Test Case #${i/3+1} %cPassed`, "color: green");
+            console.log(`Test Case #${i/3+1} %cPassed`, "color: green"); //shows a message in the console too indicate that the test has passed
         } else {
             let incorrect_login = document.getElementById('incorrect_login'); //hides the incorrect username and password from displaying in the html
-            incorrect_login.style.display = "none";
-            console.log(`Test Case #${i/3+1} %cFailed`, "color: red");
+            incorrect_login.style.display = "none"; //hides the incorrect message in sign-in
+            console.log(`Test Case #${i/3+1} %cFailed`, "color: red"); //shows a message in the console to indicate that the test has failed
         }
     }
 }
